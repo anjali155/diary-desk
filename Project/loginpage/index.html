@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Diary Desk - Teacher Management</title>
+        <meta
+            name="description"
+            content="Comprehensive digital diary for educators to manage daily activities and administrative tasks"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen active">
+            <div class="container">
+                <div class="login-card">
+                    <h1>Diary Desk</h1>
+                    <p>Your Digital Teaching Companion</p>
+
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                data-testid="input-email"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                data-testid="input-password"
+                                required
+                            />
+                        </div>
+                        <button type="submit" data-testid="button-login">
+                            Sign In
+                        </button>
+                    </form>
+
+                    <p>
+                        Don't have an account?
+                        <a href="#" id="show-signup" data-testid="link-signup"
+                            >Create Account</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signup Screen -->
+        <div id="signup-screen" class="screen">
+            <div class="container">
+                <div class="login-card">
+                    <h1>Create Account</h1>
+                    <p>Join Diary Desk</p>
+
+                    <form id="signup-form">
+                        <div class="form-group">
+                            <label for="signup-name">Full Name</label>
+                            <input
+                                type="text"
+                                id="signup-name"
+                                data-testid="input-name"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input
+                                type="email"
+                                id="signup-email"
+                                data-testid="input-signup-email"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input
+                                type="password"
+                                id="signup-password"
+                                data-testid="input-signup-password"
+                                required
+                            />
+                        </div>
+                        <button type="submit" data-testid="button-signup">
+                            Create Account
+                        </button>
+                    </form>
+
+                    <p>
+                        Already have an account?
+                        <a href="#" id="show-login" data-testid="link-login"
+                            >Sign In</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div id="dashboard-screen" class="screen">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Diary Desk</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <a
+                        href="#"
+                        class="nav-item active"
+                        data-page="dashboard"
+                        data-testid="nav-dashboard"
+                    >
+                        📊 Dashboard
+                    </a>
+                    <a
+                        href="#"
+                        class="nav-item"
+                        data-page="tasks"
+                        data-testid="nav-tasks"
+                    >
+                        📝 Daily Tasks
+                    </a>
+                    <a
+                        href="#"
+                        class="nav-item"
+                        data-page="leave"
+                        data-testid="nav-leave"
+                    >
+                        🏖️ Leave Management
+                    </a>
+                    <a
+                        href="#"
+                        class="nav-item"
+                        data-page="profile"
+                        data-testid="nav-profile"
+                    >
+                        👤 Profile
+                    </a>
+                    <a href="#" id="logout-btn" data-testid="button-logout">
+                        🚪 Logout
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Dashboard Page -->
+                <div id="dashboard-page" class="page active">
+                    <div class="page-header">
+                        <h1>
+                            Welcome back,
+                            <span id="user-name" data-testid="text-username"
+                                >Teacher</span
+                            >!
+                        </h1>
+                        <div class="search-box">
+                            <input
+                                type="text"
+                                placeholder="Search..."
+                                id="search-input"
+                                data-testid="input-search"
+                            />
+                            <button data-testid="button-search">🔍</button>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="card">
+                            <h3>Today's Tasks</h3>
+                            <div class="metric">
+                                <span
+                                    class="number"
+                                    data-testid="text-tasks-count"
+                                    >5</span
+                                >
+                                <span class="label">Pending</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3>Leave Balance</h3>
+                            <div class="metric">
+                                <span
+                                    class="number"
+                                    data-testid="text-leave-balance"
+                                    >12</span
+                                >
+                                <span class="label">Days Left</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3>This Week</h3>
+                            <div class="metric">
+                                <span
+                                    class="number"
+                                    data-testid="text-week-progress"
+                                    >3/5</span
+                                >
+                                <span class="label">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-activity">
+                        <h2>Recent Activity</h2>
+                        <div class="activity-list">
+                            <div
+                                class="activity-item"
+                                data-testid="activity-item-1"
+                            >
+                                <span class="activity-icon">📝</span>
+                                <span class="activity-text"
+                                    >Created lesson plan for Math Grade 5</span
+                                >
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                            <div
+                                class="activity-item"
+                                data-testid="activity-item-2"
+                            >
+                                <span class="activity-icon">🏖️</span>
+                                <span class="activity-text"
+                                    >Submitted leave request for next
+                                    Friday</span
+                                >
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tasks Page -->
+                <div id="tasks-page" class="page">
+                    <div class="page-header">
+                        <h1>Daily Task Planner</h1>
+                        <button
+                            class="btn-primary"
+                            id="add-task-btn"
+                            data-testid="button-add-task"
+                        >
+                            + Add Task
+                        </button>
+                    </div>
+
+                    <div class="task-filters">
+                        <button
+                            class="filter-btn active"
+                            data-filter="all"
+                            data-testid="filter-all"
+                        >
+                            All
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="pending"
+                            data-testid="filter-pending"
+                        >
+                            Pending
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="completed"
+                            data-testid="filter-completed"
+                        >
+                            Completed
+                        </button>
+                    </div>
+
+                    <div class="task-list" id="task-list">
+                        <div class="task-item" data-testid="task-item-1">
+                            <div class="task-content">
+                                <input
+                                    type="checkbox"
+                                    data-testid="checkbox-task-1"
+                                />
+                                <span class="task-title"
+                                    >Prepare Science Quiz</span
+                                >
+                                <span class="task-time">Due: 2:00 PM</span>
+                            </div>
+                            <button
+                                class="task-delete"
+                                data-testid="button-delete-task-1"
+                            >
+                                🗑️
+                            </button>
+                        </div>
+                        <div class="task-item" data-testid="task-item-2">
+                            <div class="task-content">
+                                <input
+                                    type="checkbox"
+                                    data-testid="checkbox-task-2"
+                                />
+                                <span class="task-title"
+                                    >Grade Math Homework</span
+                                >
+                                <span class="task-time">Due: 4:00 PM</span>
+                            </div>
+                            <button
+                                class="task-delete"
+                                data-testid="button-delete-task-2"
+                            >
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Add Task Modal -->
+                    <div id="add-task-modal" class="modal">
+                        <div class="modal-content">
+                            <h3>Add New Task</h3>
+                            <form id="add-task-form">
+                                <div class="form-group">
+                                    <label for="task-title">Task Title</label>
+                                    <input
+                                        type="text"
+                                        id="task-title"
+                                        data-testid="input-task-title"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="task-time">Due Time</label>
+                                    <input
+                                        type="time"
+                                        id="task-time"
+                                        data-testid="input-task-time"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="task-description"
+                                        >Description</label
+                                    >
+                                    <textarea
+                                        id="task-description"
+                                        data-testid="input-task-description"
+                                    ></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button
+                                        type="button"
+                                        class="btn-secondary"
+                                        id="cancel-task"
+                                        data-testid="button-cancel-task"
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        class="btn-primary"
+                                        data-testid="button-save-task"
+                                    >
+                                        Save Task
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leave Management Page -->
+                <div id="leave-page" class="page">
+                    <div class="page-header">
+                        <h1>Leave Management</h1>
+                        <button
+                            class="btn-primary"
+                            id="request-leave-btn"
+                            data-testid="button-request-leave"
+                        >
+                            + Request Leave
+                        </button>
+                    </div>
+
+                    <div class="leave-summary">
+                        <div class="card">
+                            <h3>Annual Leave</h3>
+                            <div class="leave-info">
+                                <span data-testid="text-annual-used"
+                                    >8 Used</span
+                                >
+                                /
+                                <span data-testid="text-annual-total"
+                                    >20 Total</span
+                                >
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3>Sick Leave</h3>
+                            <div class="leave-info">
+                                <span data-testid="text-sick-used">2 Used</span>
+                                /
+                                <span data-testid="text-sick-total"
+                                    >10 Total</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="leave-requests">
+                        <h2>Leave Requests</h2>
+                        <div class="request-list">
+                            <div
+                                class="request-item"
+                                data-testid="leave-request-1"
+                            >
+                                <div class="request-info">
+                                    <span class="request-date"
+                                        >March 15-17, 2024</span
+                                    >
+                                    <span class="request-type"
+                                        >Annual Leave</span
+                                    >
+                                    <span
+                                        class="request-status approved"
+                                        data-testid="status-approved"
+                                        >Approved</span
+                                    >
+                                </div>
+                            </div>
+                            <div
+                                class="request-item"
+                                data-testid="leave-request-2"
+                            >
+                                <div class="request-info">
+                                    <span class="request-date"
+                                        >April 5, 2024</span
+                                    >
+                                    <span class="request-type">Sick Leave</span>
+                                    <span
+                                        class="request-status pending"
+                                        data-testid="status-pending"
+                                        >Pending</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Request Leave Modal -->
+                    <div id="leave-modal" class="modal">
+                        <div class="modal-content">
+                            <h3>Request Leave</h3>
+                            <form id="leave-form">
+                                <div class="form-group">
+                                    <label for="leave-type">Leave Type</label>
+                                    <select
+                                        id="leave-type"
+                                        data-testid="select-leave-type"
+                                        required
+                                    >
+                                        <option value="">Select type</option>
+                                        <option value="annual">
+                                            Annual Leave
+                                        </option>
+                                        <option value="sick">Sick Leave</option>
+                                        <option value="personal">
+                                            Personal Leave
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="leave-start">Start Date</label>
+                                    <input
+                                        type="date"
+                                        id="leave-start"
+                                        data-testid="input-leave-start"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="leave-end">End Date</label>
+                                    <input
+                                        type="date"
+                                        id="leave-end"
+                                        data-testid="input-leave-end"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="leave-reason">Reason</label>
+                                    <textarea
+                                        id="leave-reason"
+                                        data-testid="input-leave-reason"
+                                        required
+                                    ></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button
+                                        type="button"
+                                        class="btn-secondary"
+                                        id="cancel-leave"
+                                        data-testid="button-cancel-leave"
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        class="btn-primary"
+                                        data-testid="button-submit-leave"
+                                    >
+                                        Submit Request
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Page -->
+                <div id="profile-page" class="page">
+                    <div class="page-header">
+                        <h1>Profile</h1>
+                    </div>
+
+                    <div class="profile-content">
+                        <div class="card">
+                            <h3>Personal Information</h3>
+                            <div class="profile-field">
+                                <label>Name:</label>
+                                <span data-testid="text-profile-name"
+                                    >John Doe</span
+                                >
+                            </div>
+                            <div class="profile-field">
+                                <label>Email:</label>
+                                <span data-testid="text-profile-email"
+                                    >john.doe@school.edu</span
+                                >
+                            </div>
+                            <div class="profile-field">
+                                <label>Department:</label>
+                                <span data-testid="text-profile-department"
+                                    >Mathematics</span
+                                >
+                            </div>
+                            <div class="profile-field">
+                                <label>Employee ID:</label>
+                                <span data-testid="text-profile-id"
+                                    >T12345</span
+                                >
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Settings</h3>
+                            <div class="setting-item">
+                                <label>Email Notifications</label>
+                                <input
+                                    type="checkbox"
+                                    checked
+                                    data-testid="checkbox-email-notifications"
+                                />
+                            </div>
+                            <div class="setting-item">
+                                <label>Daily Reminders</label>
+                                <input
+                                    type="checkbox"
+                                    checked
+                                    data-testid="checkbox-daily-reminders"
+                                />
+                            </div>
+                            <button
+                                class="btn-primary"
+                                data-testid="button-save-settings"
+                            >
+                                Save Settings
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

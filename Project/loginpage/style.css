@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .background {
+    background: linear-gradient(to top right, #2c1454, #c97ed6);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../../Downloads/247d99f6-6217-4573-8ade-ce8043170fcd.jpg"); /* Or use your own background */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 40px;
+    width: 350px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    color: rgb(0, 0, 0);
+  }
+  
+  .login-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .input-box {
+    position: relative;
+    margin: 20px 0;
+  }
+  
+  .input-box input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    color: rgb(11, 11, 11);
+    font-size: 16px;
+  }
+  
+  .input-box i {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: #0a0a0a;
+  }
+  
+  .input-box input::placeholder {
+    color: #131314;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin: 10px 0 20px;
+  }
+  
+  .options a {
+    color: #0a0a0a;
+    text-decoration: none;
+  }
+  
+  .login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #6d3dad;
+    border: none;
+    border-radius: 8px;
+    color: rgb(5, 5, 5);
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .login-btn:hover {
+    background-color: #5a3291;
+  }
+  
+  .create-account {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .create-account a {
+    color: #0c0b0c;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
